@@ -1,0 +1,11 @@
+{
+  "apps": [
+    {
+      "name": "sample_app",
+      "cmd_topic": "0x82",
+      "tlm_topic": "0x83"
+    }
+  ],
+  "next_cmd_topic": "0x94",
+  "next_tlm_topic": "0x95"
+}

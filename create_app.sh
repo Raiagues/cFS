@@ -263,12 +263,50 @@ fi
 
 # ── generate_startup.cmake ────────────────────────────────────────────────────
 GEN_CMAKE="$SAMPLE_DEFS/generate_startup.cmake"
-if grep -qF "CFE_APP, ${APP_LOWER}," "$GEN_CMAKE"; then
+if grep -qF "\"CFE_APP, ${APP_LOWER}," "$GEN_CMAKE"; then
     echo "[skip] $APP_LOWER already in generate_startup.cmake"
 else
-    insert_after "$GEN_CMAKE" \
-        '"CFE_APP, sample_app,  SAMPLE_APP_Main,    SAMPLE_APP,   50,   32768, 0x0, 0;\n"' \
-        "        \"CFE_APP, ${APP_LOWER}, ${APP_UPPER}_Main, ${APP_UPPER}, 54,   32768, 0x0, 0;\\\n\""
+    # Insert after the LAST "CFE_APP, line inside the file(WRITE ...) block so
+    # that new apps are always appended at the end, regardless of how many apps
+    # were previously added.
+    python3 - "$GEN_CMAKE" "$APP_LOWER" "$APP_UPPER" <<'PYEOF'
+import sys
+
+cmake_file = sys.argv[1]
+app_lower  = sys.argv[2]
+app_upper  = sys.argv[3]
+
+# \\n becomes the literal two-character sequence \n in the output file,
+# which is what cmake expects inside a file(WRITE ...) string argument.
+new_line = '        "CFE_APP, {a},     {A}_Main,       {A},      50,   32768, 0x0, 0;\\n"\n'.format(
+    a=app_lower, A=app_upper)
+
+with open(cmake_file) as f:
+    lines = f.readlines()
+
+in_write_block = False
+last_cfe_idx   = -1
+for i, line in enumerate(lines):
+    if ('file (' in line or 'file(' in line) and 'WRITE' in line:
+        in_write_block = True
+    if in_write_block and '"CFE_APP,' in line:
+        last_cfe_idx = i
+    if in_write_block and line.strip() == ')':
+        in_write_block = False
+        break
+
+if last_cfe_idx == -1:
+    print('ERROR: no CFE_APP entry found in file(WRITE) block of generate_startup.cmake',
+          file=sys.stderr)
+    sys.exit(1)
+
+lines.insert(last_cfe_idx + 1, new_line)
+
+with open(cmake_file, 'w') as f:
+    f.writelines(lines)
+
+print('[ok] Added {} to generate_startup.cmake'.format(app_lower))
+PYEOF
 fi
 
 # ── tables/sch_lab_table.c ────────────────────────────────────────────────────
@@ -375,4 +413,28 @@ echo "✓ TLM topic: ${TLM_TOPIC} → SEND_HK_MID = 0x1800 | ${TLM_TOPIC} = ${SE
 echo "                          → HK_TLM_MID  = 0x0800 | ${TLM_TOPIC} = ${HK_TLM_MID}"
 echo "✓ HK rate: every ${HK_RATE} ticks (every ${SECONDS_PER_RATE}s at TickRate=10)"
 echo "✓ Registry updated. Next available: CMD=${NEW_NEXT_CMD}  TLM=${NEW_NEXT_TLM}"
-echo "✓ Build: cd ~/Documents/TCC/cFS && make native_std.prep && make native_std.install"
+
+# ── STEP 9 — Rebuild cFS ──────────────────────────────────────────────────────
+# Remove stamp.prep to force cmake to reconfigure (picks up new app in targets.cmake),
+# then run install which compiles the new app and regenerates cfe_es_startup.scr.
+BUILD_DIR="$SCRIPT_DIR/build-native_std"
+if [[ -d "$BUILD_DIR" ]]; then
+    echo ""
+    echo "Rebuilding cFS — compiling ${APP_LOWER} and regenerating startup script..."
+    rm -f "$BUILD_DIR/stamp.prep" "$BUILD_DIR/stamp.install"
+    if make -C "$SCRIPT_DIR" native_std.install 2>&1; then
+        echo ""
+        echo "✓ Build complete. ${APP_UPPER}_Main will be loaded on next cFS start."
+        echo "  Startup script: $BUILD_DIR/exe/cpu1/cf/cfe_es_startup.scr"
+    else
+        echo ""
+        echo "ERROR: cFS rebuild failed. Fix the error above then run:" >&2
+        echo "  cd $SCRIPT_DIR && make native_std.install" >&2
+        exit 1
+    fi
+else
+    echo ""
+    echo "WARNING: Build directory not found at $BUILD_DIR"
+    echo "Run manually to complete setup:"
+    echo "  cd $SCRIPT_DIR && make native_std.prep && make native_std.install"
+fi
