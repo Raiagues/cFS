@@ -43,6 +43,7 @@ typedef struct SAMPLE_APP_HkTlm_Payload
 {
     uint8 CommandCounter;
     uint8 CommandErrorCounter;
+    uint8 spare[2];
 } SAMPLE_APP_HkTlm_Payload_t;
 
 #endif

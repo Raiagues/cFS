@@ -26,6 +26,8 @@
 #include "ci_lab_msgids.h"
 #include "to_lab_msgids.h"
 #include "sample_app_msgids.h"
+#include "novo_app_msgids.h"
+#include "senso_app_msgids.h"
 #include "cf_msgids.h"
 #include "hs_msgids.h"
 #include "md_msgids.h"
@@ -64,6 +66,8 @@ SCH_LAB_ScheduleTable_t SCH_TBL_Structure =
         {CFE_SB_MSGID_WRAP_VALUE(CI_LAB_SEND_HK_MID),     50, 0}, /* every 5.0 seconds */
         {CFE_SB_MSGID_WRAP_VALUE(TO_LAB_SEND_HK_MID),     52, 0}, /* every 5.2 seconds */
         {CFE_SB_MSGID_WRAP_VALUE(SAMPLE_APP_SEND_HK_MID), 54, 0}, /* every 5.4 seconds */
+        {CFE_SB_MSGID_WRAP_VALUE(NOVO_APP_SEND_HK_MID), 10, 0}, /* novo_app HK */
+        {CFE_SB_MSGID_WRAP_VALUE(SENSO_APP_SEND_HK_MID), 1, 0}, /* senso_app HK */
         {CFE_SB_MSGID_WRAP_VALUE(CF_SEND_HK_MID),         56, 0}, /* every 5.6 seconds */
         {CFE_SB_MSGID_WRAP_VALUE(CF_WAKE_UP_MID),         1,  0}, /* every 0.1 seconds (example of 10 Hz packet) */
         {CFE_SB_MSGID_WRAP_VALUE(MD_SEND_HK_MID),         58, 0}, /* every 5.8 seconds */

@@ -22,8 +22,8 @@ if [[ -z "$APP_NAME" ]]; then
 fi
 
 NAME_LEN=${#APP_NAME}
-if (( NAME_LEN > 10 )); then
-    echo "Error: app name '$APP_NAME' is $NAME_LEN chars, max is 10"
+if (( NAME_LEN > 11 )); then
+    echo "Error: app name '$APP_NAME' is $NAME_LEN chars, max is 11"
     exit 1
 fi
 

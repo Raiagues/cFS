@@ -29,3 +29,4 @@ ES Shell Tlm,              GenericTelemetry.py,     0x80F,   cfe-es-shell-tlm.tx
 ES MEMSTATS Tlm,           GenericTelemetry.py,     0x810,   cfe-es-memstats-tlm.txt
 ES BlockStats Tlm 1,       GenericTelemetry.py,     0x810,   cfe-es-blockstats_1-tlm.txt
 Sample App HK Tlm,         GenericTelemetry.py,     0x883,   sample-app-hk-tlm.txt
+Senso App HK Tlm,         GenericTelemetry.py,      0x895,   senso-app-hk-tlm.txt

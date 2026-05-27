@@ -37,6 +37,8 @@
 #include "ci_lab_msgids.h"
 
 #include "sample_app_msgids.h"
+#include "novo_app_msgids.h"
+#include "senso_app_msgids.h"
 #include "cf_msgids.h"
 #include "hs_msgids.h"
 #include "md_msgids.h"
@@ -76,6 +78,8 @@ TO_LAB_Subs_t TO_LAB_Subs =
 
         /* Other CFS apps */
         {CFE_SB_MSGID_WRAP_VALUE(SAMPLE_APP_HK_TLM_MID), {0, 0}, 1},
+        {CFE_SB_MSGID_WRAP_VALUE(NOVO_APP_HK_TLM_MID), {0, 0}, 1},
+        {CFE_SB_MSGID_WRAP_VALUE(SENSO_APP_HK_TLM_MID), {0, 0}, 1},
         {CFE_SB_MSGID_WRAP_VALUE(CF_HK_TLM_MID),         {0, 0}, 1},
         {CFE_SB_MSGID_WRAP_VALUE(CF_EOT_TLM_MID),        {0, 0}, 1},
         {CFE_SB_MSGID_WRAP_VALUE(CF_CH0_TX_MID),        {0, 0}, 5},
