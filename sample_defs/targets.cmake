@@ -91,7 +91,6 @@ list(APPEND MISSION_GLOBAL_APPLIST sample_app sample_lib)
 LIST(APPEND MISSION_GLOBAL_APPLIST cf)
 LIST(APPEND MISSION_GLOBAL_APPLIST hs)
 LIST(APPEND MISSION_GLOBAL_APPLIST md)
-LIST(APPEND MISSION_GLOBAL_APPLIST mm)
 LIST(APPEND MISSION_GLOBAL_APPLIST cs)
 LIST(APPEND MISSION_GLOBAL_APPLIST fm)
 LIST(APPEND MISSION_GLOBAL_APPLIST lc)
@@ -130,7 +129,7 @@ endif ()
 # all the CFS apps.  RISCV-64 is selected as the platform
 # to line up with expectations of next-gen flight hardware.
 SET(cpu1_PROCESSORID 1)
-SET(cpu1_APPLIST ci_lab to_lab novo_app sensor_app sch_lab)
+SET(cpu1_APPLIST ci_lab to_lab sch_lab)
 SET(cpu1_SYSTEM riscv64-poky-linux)
 
 # The "cpu2" is a contrived example of a helper system,
@@ -138,7 +137,7 @@ SET(cpu1_SYSTEM riscv64-poky-linux)
 # a heterogeneous deployment where a big- and little-
 # endian processor must work together in the same system.
 SET(cpu2_PROCESSORID 2)
-SET(cpu2_APPLIST ci_lab to_lab novo_app sensor_app sch_lab)
+SET(cpu2_APPLIST ci_lab to_lab sch_lab)
 SET(cpu2_SYSTEM mips32r2-poky-linux)
 
 # the EDS build always uses runtime mids, so in this configuration

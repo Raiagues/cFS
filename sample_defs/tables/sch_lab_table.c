@@ -26,15 +26,12 @@
 #include "ci_lab_msgids.h"
 #include "to_lab_msgids.h"
 #include "sample_app_msgids.h"
-#include "novo_app_msgids.h"
-#include "senso_app_msgids.h"
 #include "cf_msgids.h"
 #include "hs_msgids.h"
 #include "md_msgids.h"
 #include "fm_msgids.h"
 #include "lc_msgids.h"
 #include "cs_msgids.h"
-#include "mm_msgids.h"
 #include "sc_msgids.h"
 #include "ds_msgids.h"
 #include "hk_msgids.h"
@@ -66,8 +63,6 @@ SCH_LAB_ScheduleTable_t SCH_TBL_Structure =
         {CFE_SB_MSGID_WRAP_VALUE(CI_LAB_SEND_HK_MID),     50, 0}, /* every 5.0 seconds */
         {CFE_SB_MSGID_WRAP_VALUE(TO_LAB_SEND_HK_MID),     52, 0}, /* every 5.2 seconds */
         {CFE_SB_MSGID_WRAP_VALUE(SAMPLE_APP_SEND_HK_MID), 54, 0}, /* every 5.4 seconds */
-        {CFE_SB_MSGID_WRAP_VALUE(NOVO_APP_SEND_HK_MID), 10, 0}, /* novo_app HK */
-        {CFE_SB_MSGID_WRAP_VALUE(SENSO_APP_SEND_HK_MID), 1, 0}, /* senso_app HK */
         {CFE_SB_MSGID_WRAP_VALUE(CF_SEND_HK_MID),         56, 0}, /* every 5.6 seconds */
         {CFE_SB_MSGID_WRAP_VALUE(CF_WAKE_UP_MID),         1,  0}, /* every 0.1 seconds (example of 10 Hz packet) */
         {CFE_SB_MSGID_WRAP_VALUE(MD_SEND_HK_MID),         58, 0}, /* every 5.8 seconds */
@@ -79,7 +74,6 @@ SCH_LAB_ScheduleTable_t SCH_TBL_Structure =
         {CFE_SB_MSGID_WRAP_VALUE(LC_SEND_HK_MID),          70, 0}, /* every 7.0 seconds */
         {CFE_SB_MSGID_WRAP_VALUE(CS_SEND_HK_MID),          72, 0}, /* every 7.1 seconds */
         {CFE_SB_MSGID_WRAP_VALUE(CS_BACKGROUND_CYCLE_MID), 5,  0}, /* every 0.5 seconds (example of 2 Hz packet) */
-        {CFE_SB_MSGID_WRAP_VALUE(MM_SEND_HK_MID),          74, 0}, /* every 7.4 seconds */
         {CFE_SB_MSGID_WRAP_VALUE(HK_SEND_HK_MID),          76, 0}, /* every 7.6 seconds */
 #ifdef CFS_SBN_ENABLED
         {CFE_SB_MSGID_WRAP_VALUE(SBN_CMD_MID),             46, SBN_HK_CC}, /* every 4.6 seconds (matching the SB) */

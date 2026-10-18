@@ -1,3 +1,0 @@
-[submodule "unit-test/ut_utils_lib"]
-	path = unit-test/ut_utils_lib
-	url = git@aetd-git.gsfc.nasa.gov:gsfc-cfs/ut_utils_lib.git
