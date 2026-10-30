@@ -1,72 +1,72 @@
 [submodule "cfe"]
 	path = cfe
-	url = https://github.com/nasa/cFE.git
+	url = git@github.com:Raiagues/cfe.git
 [submodule "osal"]
 	path = osal
-	url = https://github.com/nasa/osal.git
+	url = git@github.com:Raiagues/osal.git
 [submodule "psp"]
 	path = psp
-	url = https://github.com/nasa/PSP.git
+	url = git@github.com:Raiagues/psp.git
 [submodule "apps/ci_lab"]
 	path = apps/ci_lab
-	url = https://github.com/nasa/ci_lab.git
+	url = git@github.com:Raiagues/apps-ci_lab.git
 [submodule "apps/to_lab"]
 	path = apps/to_lab
-	url = https://github.com/nasa/to_lab.git
+	url = git@github.com:Raiagues/apps-to_lab.git
 [submodule "apps/sch_lab"]
 	path = apps/sch_lab
-	url = https://github.com/nasa/sch_lab.git
+	url = git@github.com:Raiagues/apps-sch_lab.git
 [submodule "apps/sample_app"]
 	path = apps/sample_app
-	url = https://github.com/nasa/sample_app.git
+	url = git@github.com:Raiagues/apps-sample_app.git
 [submodule "libs/sample_lib"]
 	path = libs/sample_lib
-	url = https://github.com/nasa/sample_lib.git
+	url = git@github.com:Raiagues/libs-sample_lib.git
 [submodule "tools/cFS-GroundSystem"]
 	path = tools/cFS-GroundSystem
-	url = https://github.com/nasa/cFS-GroundSystem.git
+	url = git@github.com:Raiagues/tools-cFS-GroundSystem.git
 [submodule "tools/elf2cfetbl"]
 	path = tools/elf2cfetbl
-	url = https://github.com/nasa/elf2cfetbl.git
+	url = git@github.com:Raiagues/tools-elf2cfetbl.git
 [submodule "tools/tblCRCTool"]
 	path = tools/tblCRCTool
-	url = https://github.com/nasa/tblCRCTool.git
+	url = git@github.com:Raiagues/tools-tblCRCTool.git
 [submodule "tools/eds"]
 	path = tools/eds
-	url = https://github.com/nasa/EdsLib.git
+	url = git@github.com:Raiagues/tools-eds.git
 [submodule "apps/cf"]
 	path = apps/cf
-	url = https://github.com/nasa/CF.git
+	url = git@github.com:Raiagues/apps-cf.git
 [submodule "apps/cs"]
 	path = apps/cs
-	url = https://github.com/nasa/CS.git
+	url = git@github.com:Raiagues/apps-cs.git
 [submodule "apps/ds"]
 	path = apps/ds
-	url = https://github.com/nasa/DS.git
+	url = git@github.com:Raiagues/apps-ds.git
 [submodule "apps/fm"]
 	path = apps/fm
-	url = https://github.com/nasa/FM.git
+	url = git@github.com:Raiagues/apps-fm.git
 [submodule "apps/hk"]
 	path = apps/hk
-	url = https://github.com/nasa/HK.git
+	url = git@github.com:Raiagues/apps-hk.git
 [submodule "apps/hs"]
 	path = apps/hs
-	url = https://github.com/nasa/HS.git
+	url = git@github.com:Raiagues/apps-hs.git
 [submodule "apps/lc"]
 	path = apps/lc
-	url = https://github.com/nasa/LC.git
+	url = git@github.com:Raiagues/apps-lc.git
 [submodule "apps/md"]
 	path = apps/md
-	url = https://github.com/nasa/MD.git
+	url = git@github.com:Raiagues/apps-md.git
 [submodule "apps/sbn"]
 	path = apps/sbn
-	url = https://github.com/nasa/SBN.git
+	url = git@github.com:Raiagues/apps-sbn.git
 [submodule "apps/sc"]
 	path = apps/sc
-	url = https://github.com/nasa/SC.git
+	url = git@github.com:Raiagues/apps-sc.git
 [submodule "tools/cfs-cosmos-plugin"]
 	path = tools/cfs-cosmos-plugin
-	url = https://github.com/nasa/cfs-cosmos-plugin.git
+	url = git@github.com:Raiagues/tools-cfs-cosmos-plugin.git
 [submodule "tools/commandline-tools"]
 	path = tools/commandline-tools
-	url = https://github.com/nasa/cfs-commandline-tools.git
+	url = git@github.com:Raiagues/tools-commandline-tools.git
