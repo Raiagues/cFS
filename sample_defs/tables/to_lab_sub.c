@@ -51,10 +51,17 @@
 #include "sbn_msgids.h"
 #endif
 
+#ifdef APPGEN_ENABLED
+#include "appgen_includes.h"
+#endif
+
 /* clang-format: off */
 TO_LAB_Subs_t TO_LAB_Subs =
 {
     .Subs = {
+#ifdef APPGEN_ENABLED
+#include "appgen_telemetry.inc"
+#endif
         /* CFS App Subscriptions */
         {CFE_SB_MSGID_WRAP_VALUE(TO_LAB_HK_TLM_MID),          {0, 0}, 1},
         {CFE_SB_MSGID_WRAP_VALUE(TO_LAB_DATA_TYPES_MID),      {0, 0}, 1},

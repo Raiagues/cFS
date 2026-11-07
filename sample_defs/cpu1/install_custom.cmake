@@ -30,6 +30,14 @@ if (TARGET sbn)
 endif()
 
 # specify extra include dirs for to_lab + sch_lab table builds
+list(APPEND APP_DEFINITION_TABLE_LIST APPGEN_ENABLED)
+list(APPEND APP_INCLUDE_TABLE_LIST ${MISSION_DEFS}/generated)
+foreach(APP IN LISTS APPGEN_APPS)
+    if(TARGET ${APP})
+        list(APPEND APP_INCLUDE_TABLE_LIST $<TARGET_PROPERTY:${APP},INCLUDE_DIRECTORIES>)
+    endif()
+endforeach()
+
 target_include_directories(to_lab.table INTERFACE ${APP_INCLUDE_TABLE_LIST})
 target_compile_definitions(to_lab.table INTERFACE ${APP_DEFINITION_TABLE_LIST})
 target_include_directories(sch_lab.table INTERFACE ${APP_INCLUDE_TABLE_LIST})

@@ -50,11 +50,18 @@
 **  3. If the table grows too big, increase SCH_LAB_MAX_SCHEDULE_ENTRIES
 */
 
+#ifdef APPGEN_ENABLED
+#include "appgen_includes.h"
+#endif
+
 /* clang-format: off */
 SCH_LAB_ScheduleTable_t SCH_TBL_Structure =
 {
     .TickRate = 10,
     .Config   = {
+#ifdef APPGEN_ENABLED
+#include "appgen_schedule.inc"
+#endif
         {CFE_SB_MSGID_WRAP_VALUE(CFE_ES_SEND_HK_MID),     40, 0}, /* every 4.0 seconds */
         {CFE_SB_MSGID_WRAP_VALUE(CFE_EVS_SEND_HK_MID),    42, 0}, /* every 4.2 seconds */
         {CFE_SB_MSGID_WRAP_VALUE(CFE_TIME_SEND_HK_MID),   44, 0}, /* every 4.4 seconds */

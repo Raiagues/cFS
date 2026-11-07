@@ -146,3 +146,7 @@ if (CFE_EDS_ENABLED)
    set(cpu1_PLATFORM default)
    set(cpu2_PLATFORM default)
 endif (CFE_EDS_ENABLED)
+
+include(${CMAKE_CURRENT_LIST_DIR}/generated/appgen.cmake OPTIONAL)
+include(${CMAKE_CURRENT_LIST_DIR}/libraries.cmake OPTIONAL)
+list(APPEND cpu1_APPLIST ${APPGEN_LIBS} ${APPGEN_APPS} ${MISSION_LIBRARIES})

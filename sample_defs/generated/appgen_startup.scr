@@ -1,0 +1,3 @@
+CFE_LIB, linux_i2c_lib, LINUX_I2C_LIB_Init, LINUX_I2C_LIB, 0, 0, 0x0, 0;
+CFE_LIB, tmp105_lib, TMP105_LIB_Init, TMP105_LIB, 0, 0, 0x0, 0;
+CFE_LIB, lsm303dlhc_mag_lib, LSM303DLHC_MAG_LIB_Init, LSM303DLHC_MAG_LIB, 0, 0, 0x0, 0;
